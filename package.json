@@ -1,0 +1,59 @@
+{
+  "name": "db-analyzer-mcp",
+  "version": "1.0.0",
+  "description": "Safe, read-only database analysis MCP tool for AI assistants",
+  "author": "Ali Burak Ozden <ozdenaliburak@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ariburaco/db-analyzer-mcp.git"
+  },
+  "homepage": "https://github.com/ariburaco/db-analyzer-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/ariburaco/db-analyzer-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "database",
+    "postgresql",
+    "ai",
+    "claude",
+    "schema",
+    "analysis",
+    "read-only"
+  ],
+  "module": "src/index.ts",
+  "type": "module",
+  "bin": {
+    "db-analyzer-mcp": "./src/index.ts"
+  },
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "start": "bun run src/index.ts",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write src/",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^8.52.0",
+    "@typescript-eslint/parser": "^8.52.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.2",
+    "drizzle-kit": "^0.31.8",
+    "drizzle-orm": "^0.45.1",
+    "postgres": "^3.4.8",
+    "zod": "^4.3.5"
+  }
+}

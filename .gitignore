@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Bun
+bun.lockb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Project-specific MCP folder (created at runtime)
+.db-mcp/
+
+# Test databases
+*.db
+*.sqlite
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
