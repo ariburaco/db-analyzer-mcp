@@ -1,6 +1,6 @@
 export { dbInit } from './init.ts';
 export { dbPull, dbSchema, dbTables, dbSample } from './schema.ts';
-export { dbQuery, dbExplain } from './query.ts';
+export { dbQuery, dbExplain, dbRunFile } from './query.ts';
 export { dbStats, dbRelations, dbIndexes, dbSearch, dbDescribe } from './analytics.ts';
 export { dbErd, dbConstraints, dbAnalyze, dbDuplicates } from './advanced.ts';
 export {
@@ -20,6 +20,7 @@ export type {
   DbSchemaInput,
   DbQueryInput,
   DbExplainInput,
+  DbRunFileInput,
   DbTablesInput,
   DbSampleInput,
   DbStatsInput,

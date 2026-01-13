@@ -46,6 +46,17 @@ export const DbExplainSchema = z.object({
 
 export type DbExplainInput = z.infer<typeof DbExplainSchema>;
 
+// db_run_file
+export const DbRunFileSchema = z.object({
+  projectPath: z.string().describe('Project root path'),
+  filePath: z.string().describe('Path to .sql file'),
+  timeout: z.number().default(60000).describe('Query timeout in ms (default 60s)'),
+  format: z.enum(['text', 'json']).default('json').describe('Output format'),
+  limit: z.number().default(1000).describe('Maximum rows to return'),
+});
+
+export type DbRunFileInput = z.infer<typeof DbRunFileSchema>;
+
 // db_tables
 export const DbTablesSchema = z.object({
   projectPath: z.string().describe('Project root path'),
@@ -369,6 +380,35 @@ export const TOOL_DEFINITIONS = [
         sql: { type: 'string', description: 'SQL query to analyze' },
       },
       required: ['projectPath', 'sql'],
+    },
+  },
+  {
+    name: 'db_run_file',
+    description:
+      'Execute SQL from a .sql file. Supports SELECT and EXPLAIN ANALYZE. Perfect for large queries with embeddings or complex CTEs that exceed parameter limits.',
+    inputSchema: {
+      type: 'object' as const,
+      properties: {
+        projectPath: { type: 'string', description: 'Project root path' },
+        filePath: { type: 'string', description: 'Path to .sql file' },
+        timeout: {
+          type: 'number',
+          default: 60000,
+          description: 'Query timeout in milliseconds (default 60s)',
+        },
+        format: {
+          type: 'string',
+          enum: ['text', 'json'],
+          default: 'json',
+          description: 'Output format: json for data, text for EXPLAIN output',
+        },
+        limit: {
+          type: 'number',
+          default: 1000,
+          description: 'Maximum rows to return (safety limit)',
+        },
+      },
+      required: ['projectPath', 'filePath'],
     },
   },
   {

@@ -9,7 +9,7 @@ A safe, read-only database analysis tool for AI assistants via the Model Context
 
 ## Features
 
-- **30 Database Tools** - Schema introspection, query execution, performance analysis, and more
+- **31 Database Tools** - Schema introspection, query execution, performance analysis, and more
 - **Read-Only by Design** - Only SELECT, EXPLAIN, SHOW, and WITH (CTE) queries allowed
 - **Multi-Layer Security** - SQL validation, identifier sanitization, query limits
 - **PostgreSQL Support** - Primary focus with architecture ready for MySQL/SQLite
@@ -117,6 +117,7 @@ Use db_query to run SELECT queries
 |------|-------------|
 | `db_query` | Execute read-only SELECT queries |
 | `db_explain` | Run EXPLAIN ANALYZE for query optimization |
+| `db_run_file` | Execute SQL from .sql/.txt file (for large queries with embeddings) |
 
 ### Analytics Tools
 

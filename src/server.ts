@@ -10,6 +10,7 @@ import {
   dbSchema,
   dbQuery,
   dbExplain,
+  dbRunFile,
   dbTables,
   dbSample,
   dbStats,
@@ -42,6 +43,7 @@ import {
   DbSchemaSchema,
   DbQuerySchema,
   DbExplainSchema,
+  DbRunFileSchema,
   DbTablesSchema,
   DbSampleSchema,
   DbStatsSchema,
@@ -129,6 +131,11 @@ export class DbAnalyzerServer {
           case 'db_explain': {
             const input = DbExplainSchema.parse(args);
             return await dbExplain(input);
+          }
+
+          case 'db_run_file': {
+            const input = DbRunFileSchema.parse(args);
+            return await dbRunFile(input);
           }
 
           case 'db_tables': {
